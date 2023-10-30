@@ -1,17 +1,15 @@
 import './styles.css';
-// import { Button } from 'bootstrap';
+
+import { Button } from 'bootstrap';
+import CardWidget from '../CartWidget/CartWidget';
 
 const Navbar = () => {
     return (
         <div className="navbar-container">
             <div>
-                <img alt="sostre" src={'./images/logosostre.jpg'} width={150} />
+                <img alt="sostre" src={'./public/lefties-logo.jpeg'} width={150} />
             </div>
-            <div>
-                <button as="Button" variant="primary">
-                    Hola
-                </button>
-            </div>
+
             <div>
                 <ul className='.list-container' >
                     <li>
@@ -25,6 +23,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
+            <CardWidget />
         </div>
     );
 };
