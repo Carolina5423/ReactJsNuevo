@@ -1,9 +1,10 @@
-import * as Icon from "react-bootstrap-icons";
+import { IconName } from 'react-bootstrap-icons';
+
 
 const CardWidget = () => {
     return (
         <div>
-            <Icon.CartFill />
+            <Icon.CartFill/>
             <div>
                 <span>4</span>
             </div>
