@@ -2,13 +2,23 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './pages/ItemListContainer/ItemListContainer'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
+
+
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar />
-      <ItemListContainer greeting= "Hola, Bienvenido"/>
-    </div>
+
+      <Routes>
+        <Route path='/' element={ItemListContainer} />
+
+      </Routes>
+
+
+    </BrowserRouter>
   );
 }
 

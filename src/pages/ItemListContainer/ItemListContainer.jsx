@@ -1,29 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ItemCount from "../../components/ItemCount";
+import ItemList from "../../components/ItemList/ItemList";
 
-const ItemCount = () => {
-    const [count, setCount] = useState(0);
-    const stock = 10;
+const ItemListContainer = () => {
+    const [ productList, setProductList ] = useState ({});
 
-    const onAdd = () => {
-        if (count === stock) return;
-        setCount(count + 1);
+    const fetchProducts = () => {
+
+        fetch ('https://fakestoreapi.com/products') 
+        .then ((response) => response.json())
+        .then ((data) => setProductList (data))
+        .catch ((error) => console.log (error));
     };
-    const onSubtract = () => {
-        if (count === 0 ) return ;
-        setCount(count - 1);
 
-    };
+useEffect(() => {
+    fetchProducts ();
+}, [] );
 
 
     return (
         <div>
-            <button onClick={onSubtract}>-</button>
-            <span>{count}</span>
-            <button onClick={onAdd}>+</button>
+            <h1>Item list container</h1>
+            <ItemCount />
+            <ItemList productList = {productList} />
+            
         </div>
     );
-
-
 };
 
-export default ItemCount
+export default ItemListContainer;
